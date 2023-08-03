@@ -1,0 +1,146 @@
+{% extends 'staff/staff_base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    /* The container styles */
+    .banner-form .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f2f2f2;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  
+    /* Heading styles */
+    .banner-form h1 {
+      text-align: center;
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+  
+    /* Style for the form labels */
+    .banner-form form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #555;
+    }
+  
+    /* Style for the form inputs */
+    .banner-form form input[type="file"],
+    .banner-form form input[type="text"] {
+      display: block;
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      color: #555;
+    }
+  
+    /* Style for the "Upload" button */
+   
+    .banner-form form button.custom-submit-btn {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      
+  
+    /* Style for the success message */
+    .banner-form .alert-success {
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #d4edda;
+      border: 1px solid #c3e6cb;
+      border-radius: 4px;
+      color: #155724;
+    }
+  
+    /* Responsive adjustments */
+    @media (max-width: 767px) {
+      .banner-form .container {
+        padding: 10px;
+      }
+  
+      .banner-form h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+  
+ 
+  <div class="container"  style="padding-top: 10rem; padding-bottom: 10%;">
+    <h1 class="mb-4">Upload Banner Images</h1>
+    <div class="banner-form"> <!-- Add this div with custom class -->
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <div class="row mb-3">
+            <div class="col-md-6">
+                {{ form.label_1.label_tag }}
+                {{ form.label_1 }}
+            </div>
+            <div class="col-md-6">
+                {{ form.image_1.label_tag }}
+                {{ form.image_1 }}
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                {{ form.label_2.label_tag }}
+                {{ form.label_2 }}
+            </div>
+            <div class="col-md-6">
+                {{ form.image_2.label_tag }}
+                {{ form.image_2 }}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                {{ form.label_3.label_tag }}
+                {{ form.label_3 }}
+            </div>
+            <div class="col-md-6">
+                {{ form.image_3.label_tag }}
+                {{ form.image_3 }}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                {{ form.label_4.label_tag }}
+                {{ form.label_4 }}
+            </div>
+            <div class="col-md-6">
+                {{ form.image_4.label_tag }}
+                {{ form.image_4 }}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                {{ form.label_5.label_tag }}
+                {{ form.label_5 }}
+            </div>
+            <div class="col-md-6">
+                {{ form.image_5.label_tag }}
+                {{ form.image_5 }}
+            </div>
+        </div>
+        <!-- Repeat the above pattern for the other image and label fields -->
+  
+        <button type="submit" class="btn btn-primary mt-4 custom-submit-btn">Upload</button>
+      </form>
+    </div>
+  </div>
+  
+  
+{% endblock %}

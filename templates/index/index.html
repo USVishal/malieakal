@@ -1,0 +1,859 @@
+{% extends 'index/index_base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+    integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
+
+<style>
+  a{
+    text-decoration: none;
+  }
+  a:hover{
+    text-decoration: none;
+  }
+  .pro{
+    
+    
+    border-radius: 25px;  
+    border-top-left-radius: 0px;  
+    border-bottom-right-radius: 0px ;
+    
+  }
+  .pro:hover{
+    border: 2px solid #d29d42;
+    border-radius: 25px;  
+    border-top-left-radius: 0px;  
+    border-bottom-right-radius: 0px ;
+    box-shadow: 5px 4px 8px 0px #d0a04c; 
+}
+  .card{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  .contact .info {
+        width: 100%;
+    }
+
+    .contact .info i {
+        font-size: 20px;
+        float: left;
+        width: 44px;
+        height: 44px;
+        background: #cda45e;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .contact .info h4 {
+        padding: 0 0 0 60px;
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 5px;
+        font-family: "Poppins", sans-serif;
+        color: white;
+    }
+
+    .contact .info p {
+        padding: 0 0 0 60px;
+        margin-bottom: 0;
+        font-size: 14px;
+        color: #bab3a6;
+    }
+
+    .contact .info .open-hours,
+    .contact .info .email,
+    .contact .info .phone {
+        margin-top: 40px;
+    }
+
+    .contact .one-email-form {
+        width: 100%;
+    }
+
+    .contact .one-email-form .form-group {
+        padding-bottom: 8px;
+    }
+
+    .contact .one-email-form .validate {
+        display: none;
+        color: red;
+        margin: 0 0 15px 0;
+        font-weight: 400;
+        font-size: 13px;
+    }
+
+    .contact .one-email-form .error-message {
+        display: none;
+        color: #fff;
+        background: #ed3c0d;
+        text-align: center;
+        padding: 15px;
+        font-weight: 600;
+    }
+
+    .contact .one-email-form .sent-message {
+        display: none;
+        color: #fff;
+        background: #18d26e;
+        text-align: center;
+        padding: 15px;
+        font-weight: 600;
+    }
+
+    .contact .one-email-form .loading {
+        display: none;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .contact .one-email-form .loading:before {
+        content: "";
+        display: inline-block;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        margin: 0 10px -6px 0;
+        border: 3px solid #cda45e;
+        border-top-color: #1a1814;
+        animation: animate-loading 1s linear infinite;
+    }
+
+    .contact .one-email-form input,
+    .contact .one-email-form textarea {
+        border-radius: 0;
+        box-shadow: none;
+        font-size: 14px;
+        background: #0c0b09;
+        border-color: #625b4b;
+        color: white;
+    }
+
+    .contact .one-email-form input::-moz-placeholder,
+    .contact .one-email-form textarea::-moz-placeholder {
+        color: #a49b89;
+    }
+
+    .contact .one-email-form input::placeholder,
+    .contact .one-email-form textarea::placeholder {
+        color: #a49b89;
+    }
+
+    .contact .one-email-form input:focus,
+    .contact .one-email-form textarea:focus {
+        border-color: #cda45e;
+    }
+
+    .contact .one-email-form input {
+        height: 44px;
+    }
+
+    .contact .one-email-form textarea {
+        padding: 10px 12px;
+    }
+
+    .contact .one-email-form button[type=submit] {
+        background: #cda45e;
+        border: 0;
+        padding: 10px 35px;
+        color: #fff;
+        transition: 0.4s;
+        border-radius: 50px;
+    }
+
+    .contact .one-email-form button[type=submit]:hover {
+        background: #d3af71;
+    }
+  .section-title {
+        padding-bottom: 40px;
+    }
+
+    .section-title h2 {
+        font-size: 14px;
+        font-weight: 500;
+        padding: 0;
+        line-height: 1px;
+        margin: 0 0 5px 0;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #aaaaaa;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .section-title h2::after {
+        content: "";
+        width: 120px;
+        height: 1px;
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.2);
+        margin: 4px 10px;
+    }
+
+    .section-title p {
+        margin: 0;
+        margin: 0;
+        font-size: 36px;
+        font-weight: 700;
+        font-family: "Playfair Display", serif;
+        color: black;
+    }
+  .slick-slide {
+    margin: 0px 20px;
+}
+
+.slick-slide img {
+    width: 100%;
+}
+
+.slick-slider
+{
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+            user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list
+{
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.slick-list:focus
+{
+    outline: none;
+}
+.slick-list.dragging
+{
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list
+{
+    -webkit-transform: translate3d(0, 0, 0);
+       -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+         -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.slick-track
+{
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+}
+.slick-track:before,
+.slick-track:after
+{
+    display: table;
+    content: '';
+}
+.slick-track:after
+{
+    clear: both;
+}
+.slick-loading .slick-track
+{
+    visibility: hidden;
+}
+
+.slick-slide
+{
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+}
+[dir='rtl'] .slick-slide
+{
+    float: right;
+}
+.slick-slide img
+{
+    display: block;
+}
+.slick-slide.slick-loading img
+{
+    display: none;
+}
+.slick-slide.dragging img
+{
+    pointer-events: none;
+}
+.slick-initialized .slick-slide
+{
+    display: block;
+}
+.slick-loading .slick-slide
+{
+    visibility: hidden;
+}
+.slick-vertical .slick-slide
+{
+    display: block;
+    height: auto;
+    border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+  *{
+    font-family: 'Times New Roman', Times, serif;
+  }
+#why_malieakal{
+    margin-top: 16%;
+  }
+@media screen and (max-width: 960px) {  
+  #why_malieakal{
+    margin-top: 2%;
+  }
+}
+
+
+
+
+
+</style>
+
+
+<div class="row mt-5 pt-5" data-aos="fade-up">
+  <div class="col-sm-12 col-lg-12 col-md-12">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        {%if image.banner_image1%}
+        <div class="carousel-item active " data-bs-interval="2000">
+          <div class="carousel-caption d-none d-md-block mb-5" >
+            <!-- <div class="p-4" style="background-color: rgba(32, 32, 32, 0.534);"> -->
+              <h1 class="mt-3" style="font-family:cursive;color: rgb(221, 145, 5);">{{image.image_title1}}</h1>
+            <!-- <h3 class="pb-3" style="font-family: cursive;">CREAMY HOT AND READY TO SERVE.</h3>
+            <a href="" class="btn btn-light mb-5" ><b>Book a Table</b></a>
+              <a href="" class="btn btn-light mb-5" ><b>Order Now</b></a> -->
+            <!-- </div> -->
+              
+  
+            </div>
+          <img src="{{image.banner_image1.url}}"  class="d-block w-100" alt="...">
+          
+        </div>
+        {% endif %}
+        {%if image.banner_image2%}
+        <div class="carousel-item" data-bs-interval="2000" >
+          <div class="carousel-caption d-none d-md-block mb-5 ">
+              <h1 style="font-family:cursive">{{image.image_title2}}</h1>
+              <!-- <h5 style="color: rgb(248, 247, 244);font-family: cursive;">Some representative placeholder content for the first slide.</h5>
+              <a href="" class="btn btn-light mb-5" ><b>Book a Table</b></a> -->
+  
+          </div>
+          <img src="{{image.banner_image2.url}}"  class="d-block w-100" alt="..." >
+        </div>
+        {% endif %}
+        {%if image.banner_image3%}  
+        <div class="carousel-item" data-bs-interval="2000" >
+          <div class="carousel-caption d-none d-md-block mb-5">
+              <h1 style="font-family:cursive;color: #c08507;">{{image.image_title3}}</h1>
+              <!-- <h5 style="font-family: cursive;color: white;">Some representative placeholder content for the first slide.</h5> -->
+              <!-- <a href="" class="btn btn-light mb-5" ><b>Book a Table</b></a> -->
+  
+            </div>
+            <img src="{{image.banner_image3.url}}"  class="d-block w-100" alt="..." >
+  
+        </div>
+      </div>
+      {% endif %}
+      {%if image.banner_image4%}  
+        <div class="carousel-item" data-bs-interval="2000" >
+          <div class="carousel-caption d-none d-md-block mb-5">
+              <h1 style="font-family:cursive;color: #c08507;">{{image.image_title4}}</h1>
+              <!-- <h5 style="font-family: cursive;color: white;">Some representative placeholder content for the first slide.</h5> -->
+              <!-- <a href="" class="btn btn-light mb-5" ><b>Book a Table</b></a> -->
+  
+            </div>
+            <img src="{{image.banner_image4.url}}"  class="d-block w-100" alt="..." >
+  
+        </div>
+      </div>
+      {% endif %}
+
+      {%if image.banner_image5%}  
+        <div class="carousel-item" data-bs-interval="2000" >
+          <div class="carousel-caption d-none d-md-block mb-5">
+              <h1 style="font-family:cursive;color: #c08507;">{{image.image_title5}}</h1>
+              <!-- <h5 style="font-family: cursive;color: white;">Some representative placeholder content for the first slide.</h5> -->
+              <!-- <a href="" class="btn btn-light mb-5" ><b>Book a Table</b></a> -->
+  
+            </div>
+            <img src="{{image.banner_image5.url}}"  class="d-block w-100" alt="..." >
+  
+        </div>
+      </div>
+      {% endif %}
+      
+    </div>
+  
+  </div>
+</div>
+
+
+<div class="container-fluid p-5">
+  <div id="about" data-aos="fade-up">
+    <div class="row mt-2" >
+      <div class="col-sm-12 col-md-6 col-lg-6" >
+        <img src="{% static 'images\store-2.webp' %}" class="w-100" style="border-radius: 20px;" alt="">
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-6">
+
+        <div class="row" id="why_malieakal"> 
+          <div class="col-sm-12" style="text-align: center;">
+            <h3>Why Malieakal</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 mt-1" style=" text-align: justify;">
+            <p>Malieakal Group is a speciality electronics & home appliance retail chain inaugurated by Shri.K.P.P.Nambiar (Chairman, KELTRON, Govt.Of Kerala) in the year 1979 at KOLLAM, KERALA. Over the years Malieakal has become the most trusted dealer in Electronics and Home Appliance retailing with uncompromised commitment to product quality</p>
+            <br><br>
+            <h3>25000 Sqft 5 Storied State of the Art</h3>
+            <p>
+              As part of facilitating the greater service experience , especially for all sort of customers, we are offering the World First Drive – Through Service Facility.</p> 
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="product" data-aos="fade-up">
+    <section id="pro" >
+      <div class="container " data-aos="fade-up">
+
+        <div class="row mt-3 p-3" >
+          <div class="col-sm-3 col-md-3 col-lg-3" style="border-bottom: 5px solid #d32b2b;">
+            <h2>Our Products</h2>
+          </div>
+        </div>           
+
+              <div class="row g-4 py-5">
+                {%for i in cat%}
+                  <div class=" col-md-3 pro " data-aos="zoom-in" data-aos-delay="200">
+                      <div class="room-item shadow rounded overflow-hidden">
+                          <div class="position-relative text-center">
+                              <img class="img-fluid" src="{{i.image.url}}" alt="">
+                          </div>
+                          <div class="p-4 mt-2">
+                              <div class="d-flex justify-content-center mb-3 text-center">
+                                  <a href="{% url 'login_main'%}" class="stretched-link"><h5 class="mb-0 text-dark text-center">{{i.category_name}}</h5></a>
+                                  
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                {%endfor%}
+                  <!-- <div class=" col-md-3 pro" data-aos="zoom-in" data-aos-delay="200">
+                      <div class="room-item shadow rounded overflow-hidden">
+                          <div class="position-relative text-center">
+                              <img class="img-fluid" src="{% static 'images/f8.png' %}" alt="">
+                          </div>
+                          <div class="p-4 mt-2">
+                              <div class="d-flex justify-content-center mb-3 text-center">
+                                  <h5 class="mb-0 text-dark text-center">Radar</h5>
+                                  
+                              </div>
+
+                          
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-3 pro " data-aos="zoom-in" data-aos-delay="200">
+                      <div class="room-item shadow rounded overflow-hidden">
+                          <div class="position-relative text-center">
+                              <img class="img-fluid" src="{% static 'images/f1.png' %}" alt="">
+                          </div>
+                          <div class="p-4 mt-2">
+                              <div class="d-flex justify-content-center mb-3 text-center">
+                                  <h5 class="mb-0 text-dark text-center">Option Strategy</h5>
+                              
+                              </div>
+
+                          
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class=" col-md-3 pro" data-aos="zoom-in" data-aos-delay="200">
+                      <div class="room-item shadow rounded overflow-hidden">
+                          <div class="position-relative text-center">
+                              <img class="img-fluid" src="{% static 'images/f3.png' %}" alt="">
+                          </div>
+                          <div class="p-4 mt-2">
+                              <div class="d-flex justify-content-center mb-3 text-center">
+                                  <h5 class="mb-0 text-dark text-center">Advance Charts</h5>
+                              
+                              </div>
+
+                          
+                          </div>
+                      </div>
+                  </div>
+                  
+              
+                  <div class="col-md-3 pro" data-aos="zoom-in" data-aos-delay="200">
+                      <div class="room-item shadow rounded overflow-hidden">
+                          <div class="position-relative text-center">
+                              <img class="img-fluid" src="{% static 'images/f5.png' %}" alt="">
+                          </div>
+                          <div class="p-4 ">
+                              <div class="d-flex justify-content-center mb-3 text-center">
+                                  <h5 class="mb-0 text-dark text-center">Health Score</h5>
+                              
+                              </div>
+
+                          
+                          </div>
+                      </div>
+                  </div>
+                  <div class=" col-md-3 pro" data-aos="zoom-in" data-aos-delay="200">
+                      <div class="room-item shadow rounded overflow-hidden">
+                          <div class="position-relative text-center">
+                              <img class="img-fluid" src="{% static 'images/f6.png' %}" alt="">
+                          </div>
+                          <div class="p-4 mt-2">
+                              <div class="d-flex justify-content-center mb-3 text-center">
+                                  <h5 class="mb-0 text-dark text-center">Technical Screener</h5>
+                              
+                              </div>
+
+                              
+                          </div>
+                      </div>
+                  </div>
+                  <div class=" col-md-3 pro" data-aos="zoom-in" data-aos-delay="200">
+                      <div class="room-item shadow rounded overflow-hidden">
+                          <div class="position-relative text-center">
+                              <img class="img-fluid" src="{% static 'images/f7.png' %}" alt="">
+                          </div>
+                          <div class="p-4 mt-2">
+                              <div class="d-flex justify-content-center mb-3 text-center">
+                                  <h5 class="mb-0 text-dark text-center">Overview of F&O market</h5>
+                              
+                              </div>
+
+                              
+                          </div>
+                      </div>
+                  </div>
+                  <div class=" col-md-3 pro" data-aos="zoom-in" data-aos-delay="200">
+                      <div class="room-item shadow rounded overflow-hidden">
+                          <div class="position-relative text-center">
+                              <img class="img-fluid" src="{% static 'images/f2.png' %}" alt="">
+                          </div>
+                          <div class="p-4 mt-2">
+                              <div class="d-flex justify-content-center mb-3 text-center">
+                                  <h5 class="mb-0 text-dark text-center">News & Sentiments</h5>
+                              
+                              </div>
+
+                              
+                          </div>
+                      </div>
+                  </div> -->
+              
+
+          </div>
+      </div>
+  </section>
+
+    <div class="row mt-5 text-center">
+      <div class="col-sm-12">
+        <a href="{% url 'login_main'%}">
+          <div class="btn btn-outline-dark">
+          Explore More
+        </div>
+      </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="offer" data-aos="fade-up">
+
+    <div class="row mt-3 p-3" >
+      <div class="col-sm-2 col-md-2 col-lg-2" style="border-bottom: 5px solid #d32b2b;">
+        <h2>Offer Zone</h2>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      {% for item in offer%}
+      <div class="col-md-4 col-sm-12 col-lg-4 mt-2"  style="margin: 0 auto;">
+        <div class="card" style="height: auto;text-align: center;background-color: #b0c8e8;;">
+                  {% if item.image %}
+                
+                  <img class="card-img-top" style=" height: 300px;"  src="{{ item.image.url }}">
+                  {% else %}
+                
+                  <img src="{% static 'images/logo/noimage.jpg' %}" style=" height: 300px; width: 17rem;"  >
+                
+                <br>
+
+                {%endif%}
+                
+
+            <div class="card-body">
+              
+            
+                <h5 class="card-title" >{{ item.title }}</h5>
+                
+                <h5 class="card-title" style="color: #843c44;">₹{{ item.price }} <span style="color: #e46c74;">{{item.offer}}%</span></h5>
+                <div class="row">
+                  <div class="col-sm-12 p-2">
+                    <p class="card-text" style="text-align: justify;">{{ item.description }}</p>
+
+                  </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+      {%endfor%}
+    </div>
+
+  </div>
+
+  <div id="trending" data-aos="fade-up" >
+    <div class="row mt-3 p-3" >
+      <div class="col-sm-3 col-md-3 col-lg-3" style="border-bottom: 5px solid #d32b2b;">
+        <h2>Trending Product</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      
+        {% for item in item_det%}
+        <div class="col-md-3 col-sm-12 col-lg-3 mt-2"  style="margin: 0 auto;">
+          <div class="card" style="height: auto;text-align: center;background-color: #b0c8e8;">
+                    {% if item.image %}
+                  
+                    <img class="card-img-top" style=" height: 300px;"  src="{{ item.image.url }}">
+                    {% else %}
+                  
+                    <img src="{% static 'images/logo/noimage.jpg' %}" style=" height: 300px; width: 17rem;"  >
+                  
+                  <br>
+
+                  {%endif%}
+                  
+
+              <div class="card-body">
+                
+              
+                  <h5 class="card-title" >{{ item.name }}</h5>
+                  
+                  <h5 class="card-title" style="color: #843c44;">₹{{ item.price }} <span style="color: #e46c74;">{{item.offer}}%</span></h5>
+                  <div class="row">
+                    <div class="col-sm-12 p-2">
+                      <p class="card-text" style="text-align: justify;">{{ item.title_description }}</p>
+
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <a href="{% url 'login_main'%}"><div class="btn btn-outline-dark">View</div></a>
+                    </div>
+                  </div>
+
+                  
+              </div>
+          </div>
+        </div>
+        {%endfor%}
+      
+    </div>
+  </div> 
+  
+
+  
+  
+
+  <div class="row">
+    <div class="col-sm-12">
+      
+    </div>
+  </div>
+
+  <div class="row mt-3 p-3" >
+    <div class="col-sm-2 col-md-2 col-lg-2" style="border-bottom: 5px solid #d32b2b;">
+      <h2>Our Backers</h2>
+    </div>
+  </div>  
+  <section id="backers" class="backers mt-5">
+    <div class="container" data-aos="fade-up">
+
+             
+        <section class="customer-logos slider">
+            <div class="slide"><img src="{% static 'images\1-1-150x150.webp'%}"></div>
+            <div class="slide"><img src="{% static 'images\6-1-150x150.webp'%}"></div>
+            <div class="slide"><img src="{% static 'images\6-150x150.webp'%}"></div>
+            <div class="slide"><img src="{% static 'images\7-150x150.webp'%}"></div>
+            <div class="slide"><img src="{% static 'images\8-150x150.webp'%}"></div>
+            <div class="slide"><img src="{% static 'images\6-150x150.webp'%}"></div>
+            <div class="slide"><img src="{% static 'images\7-150x150.webp'%}"></div>
+            <div class="slide"><img src="{% static 'images\8-150x150.webp'%}"></div>
+         </section>
+     
+    </div>
+</section>
+
+
+
+</div>
+
+
+
+<!-- <section id="contact" class="contact pt-4 pb-4" style="background-color: #0c0b09;">
+  <div class="row mt-3 p-3" >
+    <div class="col-sm-2 col-md-2 col-lg-2" style="border-bottom: 5px solid #000000; color: white;">
+      <h2>Countact Us</h2>
+    </div>
+  </div> 
+  <div class="container" data-aos="fade-up">
+
+    
+
+  <div data-aos="fade-up">
+      <iframe style="border:0; width: 100%; height: 350px;"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
+          frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <div class="container" data-aos="fade-up">
+
+      <div class="row mt-5">
+
+          <div class="col-lg-4">
+              <div class="info">
+                  <div class="address">
+                      <i class="fas fa-map-marker-alt"></i>
+                      <h4>Location:</h4>
+                      <p>A108 Adam Street, New York, NY 535022</p>
+                  </div>
+
+                  <div class="open-hours">
+                      <i class="far fa-clock"></i>
+                      <h4>Open Hours:</h4>
+                      <p>
+                          Monday-Saturday:<br>
+                          09:00 AM - 06.00 PM
+                      </p>
+                  </div>
+
+                  <div class="email">
+                      <i class="far fa-envelope"></i>
+                      <h4>Email:</h4>
+                      <p>info@example.com</p>
+                  </div>
+
+                  <div class="phone">
+                      <i class="fas fa-phone"></i>
+                      <h4>Call:</h4>
+                      <p>+7025845854</p>
+                  </div>
+
+              </div>
+
+          </div>
+
+          <div class="col-lg-8 mt-5 mt-lg-0">
+
+              <form action="" method="post" role="form" class="one-email-form">
+                  <div class="row">
+                      <div class="col-md-6 form-group">
+                          <input type="text" name="name" class="form-control" id="name"
+                              placeholder="Your Name" required>
+                      </div>
+                      <div class="col-md-6 form-group mt-3 mt-md-0">
+                          <input type="email" class="form-control" name="email" id="email"
+                              placeholder="Your Email" required>
+                      </div>
+                  </div>
+                  <div class="form-group mt-3">
+                      <input type="text" class="form-control" name="subject" id="subject"
+                          placeholder="Subject" required>
+                  </div>
+                  <div class="form-group mt-3">
+                      <textarea class="form-control" name="message" rows="8" placeholder="Message"
+                          required></textarea>
+                  </div>
+
+                  <div class="text-center"><button type="submit">Send Message</button></div>
+              </form>
+
+          </div>
+
+      </div>
+
+  </div>
+</section> -->
+
+<script>
+ 
+
+ window.addEventListener('load', () => {
+      AOS.init({
+          duration: 1000,
+          easing: 'ease-in-out',
+          once: true,
+          mirror: false
+      })
+  });
+
+  $(document).ready(function(){
+      $('.customer-logos').slick({
+          slidesToShow: 6,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 1500,
+          arrows: false,
+          dots: false,
+          pauseOnHover: false,
+          responsive: [{
+              breakpoint: 768,
+              settings: {
+                  slidesToShow: 4
+              }
+          }, {
+              breakpoint: 520,
+              settings: {
+                  slidesToShow: 3
+              }
+          }]
+      });
+  });
+
+
+</script>
+{% endblock %}
