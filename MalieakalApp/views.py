@@ -173,9 +173,10 @@ def upload_images(request):
     return render(request, 'admin/bannerimg.html', {'form': form})
 
 
-def admin_add_item(request):
+# def admin_add_item(request):
 
     item_categories = category.objects.all()
+    print(item_categories.values)
     under_choices = (
     ("Home Appliance", "Home Appliance"),
     ("Electronics", "Electronics"),
@@ -217,6 +218,58 @@ def admin_add_item(request):
 
     return render(request,'admin/ad_add_item.html',context)
 
+
+def admin_add_item(request):
+    item_categories = category.objects.all()
+    under_choices = (
+        ("Home Appliance", "Home Appliance"),
+        ("Electronics", "Electronics"),
+        ("Furniture", "Furniture"),
+    )
+
+    if request.method == 'POST':
+        form_data = request.POST.dict()
+
+        title = form_data.get('title', None)
+        price = form_data.get('price', None)
+        offer_price = form_data.get('offer_price', None)
+        image = request.FILES.get('image', None)
+        category_id = form_data.get('categories', None)
+        under_category = form_data.get('under_category', None)
+        title_description = form_data.get('title_description', None)
+        description = form_data.get('description', None)
+
+        categorys = get_object_or_404(category, pk=category_id)
+
+        # Check if the user is present in the category instance
+        user_profile = categorys.user  # Assuming the ForeignKey to Profile_User is named 'user'
+
+        if user_profile is None:
+            # Handle the scenario where the associated Profile_User instance is missing
+            # For example, you can redirect with an error message or show a message on the page
+            return redirect('some_error_page')  # Replace 'some_error_page' with your error page URL
+
+        new_item = item(
+            category=categorys,
+            name=title,
+            price=price,
+            buying_count=0,
+            offer=offer_price,
+            image=image,
+            under_category=under_category,
+            title_description=title_description,
+            description=description
+        )
+
+        new_item.save()
+        return redirect('admin_home')
+
+    context = {
+        'item_categories': item_categories,
+        'under_choices': under_choices,
+    }
+
+    return render(request, 'admin/ad_add_item.html', context)
 
 def admin_edit_item(request, item_id):
     item_instance = get_object_or_404(item, pk=item_id)
