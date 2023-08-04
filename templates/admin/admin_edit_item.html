@@ -12,7 +12,7 @@
       font-family: Arial, sans-serif;
     }
     body {
-      background-color: #f0f0f0;
+      background-color: #f4e3e3;
       font-family: Arial, sans-serif;
       padding-top: 80px;
   }
@@ -24,7 +24,7 @@
       color: #fff;
       border: none;
       padding: 10px 20px;
-      border-radius: 5px;
+      border-radius: 10px;
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
@@ -88,10 +88,10 @@
     }
  
   </style>
-<section class="form-container mt-5 pt-5" ">
+<section class="form-container mt-5 pt-5" style="box-shadow: 20px 20px 10px #9e7377;">
   <form action = "{% url 'new_module_edit' item_instance.id %}" method = 'POST' enctype="multipart/form-data">
      {% csrf_token %}
-  <h1 class="form-header text-uppercase text-center">Item </h1>
+  <h1 class="form-header text-uppercase text-center"style="font-weight:bold; color:#d22b2c;">Item </h1>
 
 
   <div class="form">
