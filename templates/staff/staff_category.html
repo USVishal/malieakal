@@ -1,29 +1,35 @@
-{% extends 'staff/staff_base.html' %}
+{% extends 'admin/admin_base.html' %}
 {% load static %}
 {% block content %}
 <style>
 .col-sm-4{
   margin: 10% auto;
+
 }
-  
-    
+  body{
+    background-color:#f4e3e3;
+  }
+  .container2{
+    box-shadow: 20px 20px 10px #9e7377;
+  }
 </style>
 
-<div class="row p-3">
-  <div class="col-sm-4 p-5" style="background-color: #b0c8e8; text-align: left; border-radius: 10px;  padding-top: 10rem;">
+<div class="row p-3" style="padding-top: 10rem;">
+  <div class="container2 col-sm-4 p-5" style="background-color:#b0c8e8; text-align: left; border-radius: 10px;">
     
-    <form action="{% url 'staff_category' %}" method="POST" enctype="multipart/form-data" style="text-align: center;">
+    <form action="{% url 'admin_category' %}" method="POST" enctype="multipart/form-data" style="text-align: center;">
       {% csrf_token %}
       <div class="row mb-4">
-        <div class="col-sm-12">
-          <h3>Add Category</h3>
+        <div class="col-sm-12"style="border-radius: 10px;">
+          <h3 class="text-uppercase" style="color:#fff; font-family:bold; font-size:34px; " >Add Category</h3>
+          <hr>
         </div>
       </div>
       <div class="row">
         <div class="col-sm-12">
-          <label for="category_image" style="margin-left: -250px;">Category Image:</label>
+          <label for="category_image" style="text-align:start; ">Category Image:</label>
           
-          <input id="category_image" type="file" name="category_image" title="Image resalution : 400*400 px" accept="image/*" class="form-control" /><p>resalution : W-400Px H-400Px</p>
+          <input id="category_image" type="file" name="category_image" title="Image resalution : 400*400 px" accept="image/*" class="form-control" /><p>resalution : 400*400</p>
         </div>
       </div>
       
@@ -66,16 +72,5 @@
     }
   });
 </script>
-
-
-
-  
-
-
-
-
-
-
-
 
 {% endblock %}

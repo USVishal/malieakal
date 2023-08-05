@@ -23,6 +23,7 @@ import string
 from django.http import HttpResponse
 from django.http import JsonResponse
 from datetime import datetime,date, timedelta
+from .forms import OfferZoneForm
 # import pywhatkit
 ######################################################################### <<<<<<<<<< LANDING MODULE >>>>>>>>>>>>>>
 def index(request):
@@ -959,4 +960,36 @@ def delete_cart(request,id):
     usr=User_Registration.objects.get(id=ids)
     ckt=cart.objects.get(user=usr,id=id).delete()
     return redirect("cart_checkout")
+
+# ##################admin offer##################
+def new_form(request):
+        
+        if request.method == 'POST':
+            image = request.FILES.get('image')
+            title = request.POST["title"]
+            description = request.POST["description"]
+            price = int (float((request.POST["price"]).replace(',','')))
+            offer = int (float((request.POST["price"]).replace(',','')))
+
+            offer_zone_instance = offer_zone(
+                image = image,
+                title = title ,
+                description = description ,
+                price = price ,
+                offer = offer ,
+            )
+            offer_zone_instance.save()
+            return redirect('index')
+
+        return render(request,'admin/maliekalform.html')
   
+# def new_form(request):
+#     if request.method == 'POST':
+#         form = OfferZoneForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('index')
+#     else:
+#         form = OfferZoneForm()
+
+#     return render(request, 'admin/maliekalform.html', {'form': form})

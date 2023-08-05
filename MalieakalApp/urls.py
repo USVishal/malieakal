@@ -59,5 +59,7 @@ urlpatterns = [
     path('send_receipt',views.send_receipt,name='send_receipt'),
     path('product_view/<int:item_id>/', views.product_view, name='product_view'),
     path('delete_cart/<int:id>',views.delete_cart,name='delete_cart'),
+    # #############################admin offer###############
+    path('new_form/',views.new_form,name='new_form'),
     
     ]

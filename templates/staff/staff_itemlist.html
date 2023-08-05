@@ -1,12 +1,13 @@
-{% extends 'staff/staff_base.html' %}
+{% extends 'admin/admin_base.html' %}
 {% load static %}
 {% block content %}
 
-
 <style>
     body{
-        background-color: #042c54;
+        background-color: #fcdcd4;
         width: 100%;
+        
+        
     }
     .card:hover{
         box-shadow: 0 0 10px 2px hsl(0, 0%, 0%);
@@ -64,20 +65,14 @@
             .rating2 a {
                 float:none
             }
+            
 </style>
+<section class=" ">
+<div style="background-color: #fcdcd4;">
+    <div class="row mt-3 mb-3" style="background-color:#fcdcd4; ">
+           
 
-<div style="background-color: #04192c;">
-    <div class="row mt-3 mb-3" style="background-color:#042c54">
-            {% comment %} <div class="col-sm-12">
-            <div class="row">
-                <div class="col-sm-12 p-3 justify-content-center text-center">
-                    <!-- <input type="text" class="form-control search text-dark" id="search" placeholder="Search here..."> -->
-                    <a href="#" class="btn btn-primary" style="width: 15%;">Add Product</a>
-                </div>
-            </div>         
-        </div> {% endcomment %}
-
-  <div style="background-color:#042c54;padding-bottom: 15%;padding-top: 2%;">
+  <div style="background-color:#fcdcd4; padding-left:1.5rem; padding-top: 2%;" class="d-flex justify-content-center">
       <div class="row pt-3">
         <div class="col-sm-12 col-md-4 col-lg-4" style="text-align: center; margin: 0 auto;">
             {% if messages %}
@@ -91,29 +86,24 @@
           
       </div>
       <fieldset1 id="field1">
-    <div class="row justify-content-center mt-5 pt-5"> <!-- Add the justify-content-center class to center the cards -->
+    <div class="row justify-content-center mx-2px " style="padding-top: 5rem;" > <!-- Add the justify-content-center class to center the cards -->
         {% for data in items %}
-            <div class="col-sm-12 col-md-4 col-lg-4 ps-4 pe-4 outers">
-                <div class="card mb-3" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-6 mt-3">
-                            <img src="{{data.image.url}}" class="img-fluid rounded-start w-100" alt="..." style="height: auto;">
+            <div class="col-sm-12 col-md-4 col-lg-4 ps-4 pe-4 outers mb-4"" >
+                <div class="card h-100" style="max-width: 540px; min-height:280px;">
+                    <div class="row g-0 ">
+                        <div class="col-md-6 mt-3 p-2">
+                            <img src="{{data.image.url}}" class="img-fluid rounded-start w-100 " alt="..." style="height: auto;">
                         </div>
-                        <div class="col-md-6">
-                            <div class="card-body">
-                                <center>
-                                    <h5 class="card-title" style="font-family: cursive;">{{data.name}}</h5>
-                                </center>         
-                                <center>                  
-                                    <h5 style="color: #D8A382;">₹ {{data.price}} <span style="font-size: 14px; color: #04A454;">{{item.offer}}% off</span></h5>
-                                </center>
+                        <div class="col-md-6 d-flex align-items-center">
+                            <div class="card-body text-center mt-3">
+                                <h5 class="card-title" style="font-family: cursive;">{{data.name}}</h5>
+                                <h5 style="color: #D8A382;">₹ {{data.price}} <span style="font-size: 14px; color: #04A454;">{{data.offer}}% off</span></h5>
                                 <p class="card-text">{{data.title_description}}</p>
-                                <div class="row" style="bottom: 0;">
-                                    <div class="col-sm-12">
-                                        <center>
-                                            <a href="{% url 'new_module_edit' data.id%}" class="btn btn-success">Edit</a>
-                                            <a href="{% url 'delete_item' data.id %}" class="btn btn-secondary">Delete</a>
-                                          </center>
+                                <div class="row mt-2">
+                                    <div class="col-sm-12 text-center">
+                                        
+                                        <a href="{% url 'new_module_edit' data.id %}" class="btn btn-success"><i class="fa fa-edit mr-2" style="font-size:20px"></i>Edit</a>
+                                        <a href="{% url 'delete_item' data.id %}" class="btn btn-danger"><i class="fa fa-trash-o mr-2" style="font-size:20px"></i>Delete</a>
                                     </div>
                                 </div>
                             </div>
@@ -126,6 +116,7 @@
 </fieldset1>
 
   </div>
+</section>
   <script>
     const input = document.getElementById('search')
     input.addEventListener('keyup', (e) => {
@@ -159,4 +150,4 @@
  
    </script> 
 
-   {% endblock %}
+   {%  endblock %}

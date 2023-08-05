@@ -6,6 +6,7 @@ from django.core.validators import EmailValidator
 from django.contrib import messages
 
 from django.core.validators import RegexValidator
+from .models import offer_zone
 
 ########################################################<<<<<<<<< Creator Userform >>>>>>>>>>>>>>>>>
 
@@ -80,3 +81,9 @@ class UserRegistrationForm(forms.ModelForm):
     class Meta:
         model = User_Registration
         fields = '__all__'
+
+
+class OfferZoneForm(forms.ModelForm):
+    class Meta:
+        model = offer_zone
+        fields = ['image', 'title', 'description', 'price', 'offer']
