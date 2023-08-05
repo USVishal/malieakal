@@ -77,6 +77,7 @@ class item(models.Model):
     offer = models.FloatField(default=0)
     image = models.FileField(upload_to='images/items', default='static/images/logo/noimage.jpg')
     under_category=models.CharField(max_length=255,blank=True,null=True,choices = under)
+    offer_price = models.FloatField(default=0)
 
 class cart(models.Model):
     user = models.ForeignKey(User_Registration, on_delete=models.SET_NULL, null=True, blank=True)
@@ -99,4 +100,5 @@ class offer_zone(models.Model):
     description = models.TextField(blank=True,null=True)
     price=  models.FloatField(default=0)
     offer= models.FloatField(default=0)
+    offer_price = models.FloatField(default=0)
 

@@ -24,6 +24,7 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 from datetime import datetime,date, timedelta
 from .forms import OfferZoneForm
+from .models import bannerads 
 # import pywhatkit
 ######################################################################### <<<<<<<<<< LANDING MODULE >>>>>>>>>>>>>>
 def index(request):
@@ -152,17 +153,17 @@ def upload_images(request):
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
         if form.is_valid():
-            banner_image = BannerImage(
-                image_1=form.cleaned_data['image_1'],
-                label_1=form.cleaned_data['label_1'],
-                image_2=form.cleaned_data['image_2'],
-                label_2=form.cleaned_data['label_2'],
-                image_3=form.cleaned_data['image_3'],
-                label_3=form.cleaned_data['label_3'],
-                image_4=form.cleaned_data['image_4'],
-                label_4=form.cleaned_data['label_4'],
-                image_5=form.cleaned_data['image_5'],
-                label_5=form.cleaned_data['label_5'],
+            banner_image = bannerads(
+                banner_image1=form.cleaned_data['image_1'],
+                banner_title1=form.cleaned_data['label_1'],
+                banner_image2=form.cleaned_data['image_2'],
+                banner_title2=form.cleaned_data['label_2'],
+                banner_image3=form.cleaned_data['image_3'],
+                banner_title3=form.cleaned_data['label_3'],
+                banner_image4=form.cleaned_data['image_4'],
+                banner_title4=form.cleaned_data['label_4'],
+                banner_image5=form.cleaned_data['image_5'],
+                banner_title5=form.cleaned_data['label_5'],
             )
             banner_image.save()
 
@@ -174,7 +175,7 @@ def upload_images(request):
     return render(request, 'admin/bannerimg.html', {'form': form})
 
 
-# def admin_add_item(request):
+
 
     item_categories = category.objects.all()
     print(item_categories.values)

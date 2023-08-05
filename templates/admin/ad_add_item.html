@@ -179,7 +179,7 @@
 
 </style>
 <section class="form-container mt-5 mb-5 animate-zoom" style="box-shadow: 20px 20px 10px #9e7377;">
-  <form action="{% url 'new_module' %}" method="POST" enctype="multipart/form-data">
+  <form action="{% url 'admin_add_item' %}" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <h1 class="form-header text-uppercase" style="font-family:bold; font-size:34px;">Create Item</h1>
     <hr>
@@ -207,6 +207,10 @@
       <div class="form-item animate-fade-in">
         <label for="offer_price">Offer Percentage</label>
         <input id="offer_price" type="text" name="offer_price"/>
+      </div>
+      <div class="form-item animate-fade-in">
+        <label for="offer_price">Offer Price</label>
+        <input id="price" type="text" name="price"/>
       </div>
 
       <div class="form-item animate-fade-in">
